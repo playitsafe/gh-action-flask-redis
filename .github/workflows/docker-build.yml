@@ -7,6 +7,6 @@ jobs:
       - name: Checkout repo code
         uses: actions/checkout@v2
       - name: docker image build
-        uses: docker build -t playitsafe/flask-redis:latest .
+        run: docker build -t playitsafe/flask-redis:latest .
       - name: list docker image
-        uses: docker image ls
+        run: docker image ls
