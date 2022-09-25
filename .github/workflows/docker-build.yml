@@ -19,13 +19,14 @@ jobs:
         name: Available platforms
         run: echo ${{ steps.buildx.outputs.platforms }}
 
-      # - name: dockerhub login
-      #   run: docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_PASSWORD }}
-      # - name: buildx image
-      #   run: /
-      #     docker buildx create --name mybuilder --use
-      #     docker buildx ls
-      #     docker buildx build --push --platform linux/arm/v7,linux/arm64/v8,linux/amd64 -t playitsafe/flask-redis:latest .
+      - name: dockerhub login
+        run: docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_PASSWORD }}
+
+      - name: buildx and push
+        run: /
+          # docker buildx create --name mybuilder --use
+          docker buildx ls
+          docker buildx build --push --platform linux/arm/v7,linux/arm64/v8,linux/amd64 -t playitsafe/flask-redis:latest .
 
       # - name: docker image build
       #   run: docker build -t playitsafe/flask-redis:latest .
