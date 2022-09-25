@@ -4,12 +4,9 @@ jobs:
   Docker-Build-Push:
     runs-on: ubuntu-latest
     steps:
-      -
-        name: Checkout repo code
+      - name: Checkout repo code
         uses: actions/checkout@v2
-      -
-        name: docker image build
+      - name: docker image build
         uses: docker build -t playitsafe/flask-redis:latest .
-      -
-        name: list docker image
+      - name: list docker image
         uses: docker image ls
