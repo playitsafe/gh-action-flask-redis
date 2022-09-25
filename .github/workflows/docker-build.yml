@@ -4,7 +4,8 @@ jobs:
   Docker-Build-Push:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repo code
+      - 
+        name: Checkout repo code
         uses: actions/checkout@v2
       -
         # Add support for more platforms with QEMU (optional)
