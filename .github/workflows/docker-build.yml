@@ -18,20 +18,11 @@ jobs:
         uses: docker/setup-buildx-action@v2
       -
         name: Available platforms
-        run: echo ${{ steps.buildx.outputs.platforms }}
-      - 
-        name: dockerhub login
-        run: docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_PASSWORD }}
+        run: echo ${{ steps.buildx.outputs.platforms }} 
       - 
         name: buildx and push
         run: 
           /
+          docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_PASSWORD }}
           docker buildx ls
           docker buildx build --push --platform linux/arm/v7,linux/arm64/v8,linux/amd64 -t playitsafe/flask-redis:latest .
-
-      # - name: docker image build
-      #   run: docker build -t playitsafe/flask-redis:latest .
-      # - name: list docker image
-      #   run: docker image ls
-      # - name: push to dockerhub
-      #   run: docker image push playitsafe/flask-redis:latest
