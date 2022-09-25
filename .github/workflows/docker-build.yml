@@ -21,8 +21,8 @@ jobs:
       - 
         name: dockerhub login
         run: docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_PASSWORD }}
-
-      - name: buildx and push
+      - 
+        name: buildx and push
         run: /
           # docker buildx create --name mybuilder --use
           docker buildx ls
